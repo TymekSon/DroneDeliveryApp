@@ -32,5 +32,8 @@ jobs:
         dotnet --info
 
     - run: dotnet restore
+      working-directory: DroneDeliveryApp
     - run: dotnet build
+      working-directory: DroneDeliveryApp
     - run: dotnet test
+      working-directory: DroneDeliveryApp
