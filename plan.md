@@ -131,7 +131,8 @@
     │   │
     │   ├── Models/                    ← Encje domenowe (dawniej "Classes/")
     │   │   ├── Entities/              ← User, Order, Drone, etc.
-    │   │   └── ValueObjects/          ← opcjonalnie (np. Address, Coordinates)
+    │   │   ├── ValueObjects/          ← opcjonalnie (np. Address, Coordinates)
+    │   │   └── Enums/
     │   │
     │   ├── Data/                      ← Warstwa danych
     │   │   ├── ApplicationDbContext.cs
