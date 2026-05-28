@@ -116,3 +116,42 @@
     Group_Landing_Spot: <Group.id, Landing_Spot.id>
 
 
+**App structure**
+
+    DroneDeliveryApp/                  ← nazwa folderu i solution
+    ├── DroneDeliveryApp/              ← folder projektu (.csproj)
+    │   ├── Program.cs
+    │   ├── appsettings.json
+    │   ├── appsettings.Development.json
+    │   │
+    │   ├── Controllers/               ← API Controllers
+    │   ├── DTOs/                      ← Data Transfer Objects
+    │   │   ├── Requests/
+    │   │   └── Responses/
+    │   │
+    │   ├── Models/                    ← Encje domenowe (dawniej "Classes/")
+    │   │   ├── Entities/              ← User, Order, Drone, etc.
+    │   │   └── ValueObjects/          ← opcjonalnie (np. Address, Coordinates)
+    │   │
+    │   ├── Data/                      ← Warstwa danych
+    │   │   ├── ApplicationDbContext.cs
+    │   │   ├── Configurations/        ← IEntityTypeConfiguration<T>
+    │   │   ├── Repositories/          ← (opcjonalnie na początku)
+    │   │   └── Migrations/
+    │   │
+    │   ├── Services/                  ← Logika biznesowa
+    │   │   ├── Interfaces/
+    │   │   └── Implementations/
+    │   │
+    │   ├── Common/                    ← rzeczy wspólne
+    │   │   ├── Exceptions/
+    │   │   ├── Extensions/
+    │   │   └── Helpers/
+    │   │
+    │   ├── Utils/                     ← skrypty, seedery, etc.
+    │   └── Tests/                     ← (możesz na razie zostawić na zewnątrz)
+    │
+    ├── DroneDeliveryApp.Tests/        ← osobny projekt testowy (opcjonalnie później)
+    ├── .gitignore
+    ├── README.md
+    └── DroneDeliveryApp.sln
