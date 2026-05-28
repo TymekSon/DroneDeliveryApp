@@ -10,12 +10,26 @@ jobs:
 
     runs-on: [self-hosted, linux]
 
+    env:
+      RUNNER_TOOL_CACHE: $HOME/.toolcache
+
     steps:
     - uses: actions/checkout@v4
 
-    - uses: actions/setup-dotnet@v4
-      with:
-        dotnet-version: 8.0.x
+    - name: Ensure tool cache directory
+      run: mkdir -p "$HOME/.toolcache"
+
+    - name: Install .NET locally in $HOME
+      run: |
+        wget https://dot.net/v1/dotnet-install.sh -O dotnet-install.sh
+        chmod +x dotnet-install.sh
+        ./dotnet-install.sh --channel 8.0 --install-dir "$HOME/dotnet"
+        echo "$HOME/dotnet" >> $GITHUB_PATH
+        echo "DOTNET_ROOT=$HOME/dotnet" >> $GITHUB_ENV
+
+    - name: Verify dotnet
+      run: |
+        dotnet --info
 
     - run: dotnet restore
     - run: dotnet build
