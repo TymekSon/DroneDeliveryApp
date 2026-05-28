@@ -36,7 +36,7 @@
         -email
         -adress
         -passwordHash
-        -Role
+        -List<Role>
 
     Role:
         -id
