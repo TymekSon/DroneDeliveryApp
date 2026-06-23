@@ -1,1 +1,1 @@
-To jest zawartość pliku testowego.
+Zaktualizowana treść pliku testowego.
